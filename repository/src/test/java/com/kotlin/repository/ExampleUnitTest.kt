@@ -6,10 +6,12 @@ import org.junit.Assert.*
 
 class ExampleUnitTest {
     @Test
-    fun testList() {
-        val rep = RespositoryImpl()
+    fun testStatusOkApi() {
+        val rep = RepositoryImpl()
         rep.getGraph()
-            .doOnNext { assertEquals("1", it) }
-            .subscribe()
+            ?.doOnNext {
+                assertEquals("ok", it.status)
+            }
+            ?.subscribe()
     }
 }
