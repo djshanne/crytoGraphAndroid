@@ -1,15 +1,14 @@
 package com.kotlin.repository
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
-import org.junit.Assert.*
-
-class ExampleUnitTest {
+class RepositoryUnitTest {
     @Test
     fun testStatusOkApi() {
         val rep = RepositoryImpl()
         rep.getGraph()
-            ?.doOnNext {
+            .doOnNext {
                 assertEquals("ok", it.status)
             }
             ?.subscribe()
