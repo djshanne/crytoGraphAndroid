@@ -1,7 +1,9 @@
 package com.kotlin.myapplication
 
+import com.kotlin.views.models.LineChartViewModel
+
 interface MainChartActivityView {
 
-    fun paintChart(inputValues: List<Float>, range: Float)
+    fun paintChart(viewModel: LineChartViewModel)
 
 }

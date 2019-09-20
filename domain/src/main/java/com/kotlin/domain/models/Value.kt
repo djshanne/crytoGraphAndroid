@@ -1,4 +1,4 @@
-package com.kotlin.repository.models
+package com.kotlin.domain.models
 
 data class Value(
     val x: Float,

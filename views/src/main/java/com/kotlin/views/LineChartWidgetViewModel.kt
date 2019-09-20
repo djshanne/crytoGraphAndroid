@@ -1,3 +1,0 @@
-package com.kotlin.views
-
-interface LineChartWidgetViewModel:ViewModel<LineChartViewModel>

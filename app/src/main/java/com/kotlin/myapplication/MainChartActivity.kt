@@ -2,11 +2,12 @@ package com.kotlin.myapplication
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.kotlin.views.models.LineChartViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainChartActivity : AppCompatActivity(), MainChartActivityView {
 
-    private val viewModelResolver = ViewModelResolver()
+
     private val presenter = MainChartActivityPresenterImpl(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +16,12 @@ class MainChartActivity : AppCompatActivity(), MainChartActivityView {
         presenter.fetchData()
     }
 
-    override fun paintChart(inputValues: List<Float>, range: Float) {
-        chart.setData(viewModelResolver.getViewModelLineChart(inputValues, range))
+    override fun paintChart(viewModel: LineChartViewModel) {
+        chart.setData(viewModel)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.onPause()
     }
 }
