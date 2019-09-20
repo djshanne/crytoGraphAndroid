@@ -14,6 +14,7 @@ class MainChartActivity : AppCompatActivity(), MainChartActivityView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter.fetchData()
+//        chart.setData(LineChartViewModel(ArrayList()))
     }
 
     override fun paintChart(viewModel: LineChartViewModel) {
@@ -21,7 +22,7 @@ class MainChartActivity : AppCompatActivity(), MainChartActivityView {
     }
 
     override fun onPause() {
-        super.onPause()
         presenter.onPause()
+        super.onPause()
     }
 }

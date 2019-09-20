@@ -13,7 +13,7 @@ class RepositoryImpl : Repository {
     var remote = RemoteSource()
     var local = LocalSource()
 
-    override fun getGraph(): Observable<Graph>? {
+    override fun getGraph(): Observable<Graph> {
         return remote.getGraph()
     }
 

@@ -15,13 +15,16 @@ class MainChartActivityPresenterImpl(private val view: MainChartActivityView) :
 
     override fun fetchData() {
         fetchDataDisposable =
-            chartDataHandler.fetchData()?.observeOn(AndroidSchedulers.mainThread())
-                ?.map {
+            chartDataHandler.fetchData()
+                .map {
                     val values = ArrayList<Value>()
                     for (x in it.values)
                         values.add(Value(x.x, x.y))
                     LineChartViewModel(values)
-                }?.subscribe(view::paintChart)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(view::paintChart)
+                .subscribe()
     }
 
     override fun onPause() {

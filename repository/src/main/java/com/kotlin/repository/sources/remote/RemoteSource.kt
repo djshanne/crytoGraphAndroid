@@ -9,19 +9,18 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RemoteSource : Repository {
-    private var restClient: CryptoApi? = null
-    private var retrofit: Retrofit? = null
+    private var restClient: CryptoApi
+    private var retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("https://api.blockchain.info")
+        .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .build()
 
     init {
-        retrofit = Retrofit.Builder()
-            .baseUrl("https://api.blockchain.info")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
-        restClient = retrofit?.create<CryptoApi>(CryptoApi::class.java)
+        restClient = retrofit.create<CryptoApi>(CryptoApi::class.java)
     }
 
-    override fun getGraph(): Observable<Graph>? {
-        return restClient?.getGraph()?.subscribeOn(Schedulers.io())
+    override fun getGraph(): Observable<Graph> {
+        return restClient.getGraph().subscribeOn(Schedulers.io())
     }
 }

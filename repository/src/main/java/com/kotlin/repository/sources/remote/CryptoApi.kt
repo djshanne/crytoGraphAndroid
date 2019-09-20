@@ -5,6 +5,6 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface CryptoApi {
-    @GET("/charts/transactions-per-second?timespan=5weeks&rollingAverage=8hours&format=json")
+    @GET("/charts/market-price?timespan=3days&format=json")
     fun getGraph(): Observable<Graph>
 }

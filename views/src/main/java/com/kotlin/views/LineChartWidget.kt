@@ -45,47 +45,15 @@ class LineChartWidget : FrameLayout {
 
 
     fun setData(model: LineChartViewModel) {
-
         val values = ArrayList<Entry>()
 
-//        for (i in model.values)
-//            values.add(
-//                Entry(
-//                    i.x, i.y,
-//                    resources.getDrawable(R.drawable.star)
-//                )
-//            )
-
-        /*for (x in 0 until 10) {
-            values.add(Entry(
-                x.toFloat(), (Math.random() * 10).toFloat() - 30,
-                resources.getDrawable(R.drawable.star))
-            )
-        }*/
-
-        for (i in 0 until 10)
+        for (i in model.values)
             values.add(
                 Entry(
-                    x, (Math.random() * 100).toFloat() - 30,
+                    i.x, i.y,
                     resources.getDrawable(R.drawable.star)
                 )
             )
-
-
-
-        /*values.add(
-            Entry(
-                1F, 5F,
-                resources.getDrawable(R.drawable.star)
-            )
-        )
-        values.add(
-            Entry(
-                5F, 10F,
-                resources.getDrawable(R.drawable.star)
-            )
-        )*/
-
 
         val set1: LineDataSet
 
@@ -102,15 +70,15 @@ class LineChartWidget : FrameLayout {
             set1.setDrawIcons(false)
 
             // draw dashed line
-            set1.enableDashedLine(10f, 5f, 0f)
+//            set1.enableDashedLine(10f, 5f, 0f)
 
             // black lines and points
             set1.color = Color.BLACK
-            set1.setCircleColor(Color.BLACK)
+            set1.setCircleColor(Color.TRANSPARENT)
 
             // line thickness and point size
-            set1.lineWidth = 1f
-            set1.circleRadius = 3f
+            set1.lineWidth = 0.5f
+            set1.circleRadius = 0.0f
 
             // draw points as solid circles
             set1.setDrawCircleHole(false)
@@ -124,7 +92,7 @@ class LineChartWidget : FrameLayout {
             set1.valueTextSize = 9f
 
             // draw selection line as dashed
-            set1.enableDashedHighlightLine(10f, 5f, 0f)
+//            set1.enableDashedHighlightLine(10f, 5f, 0f)
 
             // set the filled area
             set1.setDrawFilled(true)
@@ -150,7 +118,6 @@ class LineChartWidget : FrameLayout {
             lineChart.data = data
         }
 
-
+        lineChart.invalidate()
     }
-
 }
