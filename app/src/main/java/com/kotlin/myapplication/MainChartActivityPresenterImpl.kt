@@ -20,10 +20,13 @@ class MainChartActivityPresenterImpl(private val view: MainChartActivityView) :
                     val values = ArrayList<Value>()
                     for (x in it.values)
                         values.add(Value(x.x, x.y))
-                    LineChartViewModel(values)
+                    LineChartViewModel(values, it.name)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(view::paintChart)
+                .doOnNext {
+                    view.paintChart(it)
+                    view.paintTitle(it.name)
+                }
                 .subscribe()
     }
 

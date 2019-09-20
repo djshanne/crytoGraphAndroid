@@ -51,7 +51,7 @@ class LineChartWidget : FrameLayout {
             values.add(
                 Entry(
                     i.x, i.y,
-                    resources.getDrawable(R.drawable.star)
+                    null
                 )
             )
 
@@ -65,12 +65,9 @@ class LineChartWidget : FrameLayout {
             lineChart.notifyDataSetChanged()
         } else {
             // create a dataset and give it a type
-            set1 = LineDataSet(values, "DataSet 1")
+            set1 = LineDataSet(values, model.name)
 
             set1.setDrawIcons(false)
-
-            // draw dashed line
-//            set1.enableDashedLine(10f, 5f, 0f)
 
             // black lines and points
             set1.color = Color.BLACK
@@ -91,18 +88,16 @@ class LineChartWidget : FrameLayout {
             // text size of values
             set1.valueTextSize = 9f
 
-            // draw selection line as dashed
-//            set1.enableDashedHighlightLine(10f, 5f, 0f)
-
             // set the filled area
             set1.setDrawFilled(true)
             set1.fillFormatter =
                 IFillFormatter { dataSet, dataProvider -> lineChart.axisLeft.axisMinimum }
 
+
             // set color of filled area
             if (Utils.getSDKInt() >= 18) {
                 // drawables only supported on api level 18 and above
-                val drawable = ContextCompat.getDrawable(context, R.drawable.fade_red)
+                val drawable = ContextCompat.getDrawable(context, R.drawable.fade)
                 set1.fillDrawable = drawable
             } else {
                 set1.fillColor = Color.BLACK

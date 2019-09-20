@@ -5,5 +5,6 @@ import com.kotlin.views.models.LineChartViewModel
 interface MainChartActivityView {
 
     fun paintChart(viewModel: LineChartViewModel)
+    fun paintTitle(name: String)
 
 }

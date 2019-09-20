@@ -14,11 +14,15 @@ class MainChartActivity : AppCompatActivity(), MainChartActivityView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter.fetchData()
-//        chart.setData(LineChartViewModel(ArrayList()))
+        title = getString(R.string.chart_name)
     }
 
     override fun paintChart(viewModel: LineChartViewModel) {
         chart.setData(viewModel)
+    }
+
+    override fun paintTitle(name: String) {
+        title = "${getString(R.string.chart_name)}: $name"
     }
 
     override fun onPause() {
