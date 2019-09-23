@@ -6,5 +6,8 @@ interface MainChartActivityView {
 
     fun paintChart(viewModel: LineChartViewModel)
     fun paintTitle(name: String)
+    fun hasInternetConnection(): Boolean
+    fun paintError(message: String?)
+    fun paintNoInternetConnection()
 
 }

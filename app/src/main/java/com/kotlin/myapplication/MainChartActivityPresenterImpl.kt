@@ -20,20 +20,26 @@ class MainChartActivityPresenterImpl :
     }
 
     override fun fetchData() {
-        fetchDataDisposable =
-            chartDataHandler.fetchData()
-                .map {
-                    val values = ArrayList<Value>()
-                    for (x in it.values)
-                        values.add(Value(x.x, x.y))
-                    LineChartViewModel(values, it.name)
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext {
-                    view.paintChart(it)
-                    view.paintTitle(it.name)
-                }
-                .subscribe()
+        if (view.hasInternetConnection()) {
+            fetchDataDisposable =
+                chartDataHandler.fetchData()
+                    .map {
+                        val values = ArrayList<Value>()
+                        for (x in it.values)
+                            values.add(Value(x.x, x.y))
+                        LineChartViewModel(values, it.name)
+                    }
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnNext {
+                        view.paintChart(it)
+                        view.paintTitle(it.name)
+                    }
+                    .doOnError {
+                        view.paintError(it.message)
+                    }
+                    .subscribe()
+        } else
+            view.paintNoInternetConnection()
     }
 
     override fun onPause() {
