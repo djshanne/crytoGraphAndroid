@@ -1,5 +1,7 @@
-package com.kotlin.repository
+package com.kotlin.repository.sources.components
 
+import com.kotlin.repository.RepositoryImpl
+import com.kotlin.repository.sources.modules.RepositoryModule
 import com.kotlin.repository.sources.remote.RemoteSource
 import dagger.Component
 import javax.inject.Singleton

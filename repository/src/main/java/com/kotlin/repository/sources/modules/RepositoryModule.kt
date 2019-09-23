@@ -1,4 +1,4 @@
-package com.kotlin.repository
+package com.kotlin.repository.sources.modules
 
 import com.kotlin.repository.sources.local.LocalSource
 import com.kotlin.repository.sources.remote.CryptoApi
