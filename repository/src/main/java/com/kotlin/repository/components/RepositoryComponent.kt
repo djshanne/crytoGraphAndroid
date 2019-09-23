@@ -9,6 +9,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [RepositoryModule::class])
 interface RepositoryComponent {
-    fun inject(activity: RemoteSource)
-    fun inject(activity: RepositoryImpl)
+    fun inject(target: RemoteSource)
+    fun inject(target: RepositoryImpl)
 }

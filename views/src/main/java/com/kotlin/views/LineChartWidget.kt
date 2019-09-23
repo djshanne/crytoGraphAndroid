@@ -91,7 +91,7 @@ class LineChartWidget : FrameLayout {
             // set the filled area
             set1.setDrawFilled(true)
             set1.fillFormatter =
-                IFillFormatter { dataSet, dataProvider -> lineChart.axisLeft.axisMinimum }
+                IFillFormatter { _, _ -> lineChart.axisLeft.axisMinimum }
 
 
             // set color of filled area

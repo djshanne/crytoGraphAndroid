@@ -1,17 +1,23 @@
 package com.kotlin.myapplication
 
 import com.kotlin.domain.ChartDataHandler
+import com.kotlin.myapplication.componets.DaggerAppComponent
 import com.kotlin.views.models.LineChartViewModel
 import com.kotlin.views.models.Value
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import javax.inject.Inject
 
-class MainChartActivityPresenterImpl(private val view: MainChartActivityView) :
+class MainChartActivityPresenterImpl :
     MainChartActivityPresenter {
-
+    private lateinit var view: MainChartActivityView
     private var fetchDataDisposable: Disposable? = null
-    private val chartDataHandler = ChartDataHandler()
+    @Inject
+    lateinit var chartDataHandler: ChartDataHandler
 
+    init {
+        DaggerAppComponent.create().inject(this)
+    }
 
     override fun fetchData() {
         fetchDataDisposable =
@@ -33,4 +39,9 @@ class MainChartActivityPresenterImpl(private val view: MainChartActivityView) :
     override fun onPause() {
         fetchDataDisposable?.dispose()
     }
+
+    override fun setView(view: MainChartActivityView) {
+        this.view = view
+    }
+
 }

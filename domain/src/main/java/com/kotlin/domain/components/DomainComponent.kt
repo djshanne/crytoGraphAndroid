@@ -8,5 +8,5 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [DomainModule::class])
 interface DomainComponent {
-    fun inject(activity: ChartDataHandler)
+    fun inject(target: ChartDataHandler)
 }

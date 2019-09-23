@@ -4,5 +4,6 @@ interface MainChartActivityPresenter {
 
     fun fetchData()
     fun onPause()
+    fun setView(view: MainChartActivityView)
 
 }
