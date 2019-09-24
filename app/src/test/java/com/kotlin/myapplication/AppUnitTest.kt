@@ -4,8 +4,6 @@ import com.kotlin.views.models.LineChartViewModel
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import javax.inject.Inject
@@ -27,7 +25,7 @@ class AppUnitTest {
 
     @Test
     fun is_connection_ok() {
-//        DaggerTestComponent.create().inject(this)
+        DaggerTestComponent.create().inject(this)
         val presenter = MainChartActivityPresenterImpl()
         presenter.setView(view)
         presenter.fetchData()
@@ -43,9 +41,10 @@ class AppUnitTest {
 
             override fun paintError(message: String?) {
                 if (!message.isNullOrEmpty()) {
-                    assertEquals(message, "No Internet Connection")
-                } else
-                    assertTrue(false)
+                    assert(message == "No Internet Connection")
+                } else {
+                    assert(false)
+                }
             }
 
             override fun paintNoInternetConnection() {
