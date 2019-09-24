@@ -5,26 +5,75 @@ import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
 import junit.framework.Assert.assertEquals
+import junit.framework.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
+import javax.inject.Inject
 
-class AppUnitTest : MainChartActivityView {
+class AppUnitTest {
 
-    override fun paintChart(viewModel: LineChartViewModel) {
-        assert(viewModel.values.isNotEmpty())
-    }
+    @Inject
+    lateinit var view: MainChartActivityView
 
-    override fun paintTitle(name: String) {
-        assertEquals("Market Price (USD)", name)
-    }
 
-    @Test
-    fun is_presenter_ok() {
+    @Before
+    fun beforeTest() {
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
         RxJavaPlugins.setComputationSchedulerHandler { Schedulers.trampoline() }
         RxJavaPlugins.setNewThreadSchedulerHandler { Schedulers.trampoline() }
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
+    }
 
-        val presenter = MainChartActivityPresenterImpl(this)
+
+    @Test
+    fun is_connection_ok() {
+//        DaggerTestComponent.create().inject(this)
+        val presenter = MainChartActivityPresenterImpl()
+        presenter.setView(view)
         presenter.fetchData()
     }
+
+    @Test
+    fun is_connection_ko() {
+
+        val view: MainChartActivityView = object : MainChartActivityView {
+            override fun hasInternetConnection(): Boolean {
+                return false
+            }
+
+            override fun paintError(message: String?) {
+                if (!message.isNullOrEmpty()) {
+                    assertEquals(message, "No Internet Connection")
+                } else
+                    assertTrue(false)
+            }
+
+            override fun paintNoInternetConnection() {
+            }
+
+            override fun showLoading() {
+            }
+
+            override fun hideLoading() {
+            }
+
+            override fun paintRetrieveDataError() {
+            }
+
+            override fun paintChart(viewModel: LineChartViewModel) {
+
+            }
+
+            override fun paintTitle(name: String) {
+
+            }
+
+        }
+
+        val presenter = MainChartActivityPresenterImpl()
+        presenter.setView(view)
+        presenter.fetchData()
+    }
+
+
 }
