@@ -3,4 +3,6 @@
     <string name="chart_name">Chart</string>
     <string name="error_no_internet_connection">No Internet Connection</string>
     <string name="error_generic">Try Again Later</string>
+    <string name="status_data_loading">Loading</string>
+    <string name="status_data_empty">Empty Data</string>
 </resources>
