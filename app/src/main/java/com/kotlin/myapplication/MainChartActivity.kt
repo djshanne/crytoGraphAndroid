@@ -28,6 +28,7 @@ class MainChartActivity : AppCompatActivity(), MainChartActivityView {
 
     private fun initPresenter() {
         presenter.setView(this)
+        //TODO fix issue with view model lifecycle
 //        val model = ViewModelProvider(this).get(LineChartViewModel::class.java)
 //        paintChart(model)
         presenter.fetchData()
