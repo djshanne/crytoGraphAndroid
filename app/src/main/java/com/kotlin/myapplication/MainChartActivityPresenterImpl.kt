@@ -30,14 +30,10 @@ class MainChartActivityPresenterImpl :
                         LineChartViewModel(values, it.name)
                     }
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doOnNext {
+                    .subscribe({
                         view.paintChart(it)
                         view.paintTitle(it.name)
-                    }
-                    .doOnError {
-                        view.paintError(it.message)
-                    }
-                    .subscribe()
+                    }, { t: Throwable? -> t?.let { view.paintError(t.localizedMessage) } })
         } else
             view.paintNoInternetConnection()
     }
