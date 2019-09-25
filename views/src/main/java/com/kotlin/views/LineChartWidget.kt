@@ -3,10 +3,9 @@ package com.kotlin.views
 import android.content.Context
 import android.graphics.Color
 import android.graphics.DashPathEffect
-import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.FrameLayout
+import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -17,26 +16,20 @@ import com.github.mikephil.charting.utils.Utils
 import com.kotlin.views.models.LineChartViewModel
 import kotlinx.android.synthetic.main.line_chart_widget.view.*
 
-class LineChartWidget : FrameLayout {
+class LineChartWidget : BaseWidget<LineChartViewModel> {
 
 
-    constructor(context: Context) : super(context) {
-        initView(context)
-    }
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        initView(context)
-    }
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
-    ) {
-        initView(context)
-    }
+    )
 
-    private fun initView(context: Context) {
+    override fun initView(context: Context) {
         LayoutInflater.from(context).inflate(R.layout.line_chart_widget, this)
         lineChart.setBackgroundColor(Color.WHITE)
         val l = lineChart.legend
@@ -44,10 +37,10 @@ class LineChartWidget : FrameLayout {
     }
 
 
-    fun setData(model: LineChartViewModel) {
+    override fun setData(viewModel: LineChartViewModel) {
         val values = ArrayList<Entry>()
 
-        for (i in model.values)
+        for (i in viewModel.values)
             values.add(
                 Entry(
                     i.x, i.y,
@@ -65,7 +58,7 @@ class LineChartWidget : FrameLayout {
             lineChart.notifyDataSetChanged()
         } else {
             // create a dataset and give it a type
-            set1 = LineDataSet(values, model.name)
+            set1 = LineDataSet(values, viewModel.name)
 
             set1.setDrawIcons(false)
 
@@ -91,7 +84,7 @@ class LineChartWidget : FrameLayout {
             // set the filled area
             set1.setDrawFilled(true)
             set1.fillFormatter =
-                IFillFormatter { dataSet, dataProvider -> lineChart.axisLeft.axisMinimum }
+                IFillFormatter { _, _ -> lineChart.axisLeft.axisMinimum }
 
 
             // set color of filled area
