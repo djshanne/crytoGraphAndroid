@@ -1,6 +1,6 @@
 crytoGraphAndroid
 
-#This is a simple app in kotlin that covers all this points named below:
+## This is a simple app in kotlin that covers all this points named below:
 
  1. Android Module usage (views, repository, domain and app)
  2. Separate Responsibilities by using modules
@@ -15,7 +15,7 @@ crytoGraphAndroid
 
 
 
- #Responsibilities and dependencies
+ ## Responsibilities and dependencies
 
  1. Views : it's job is to hold all our widgets, this way we can reuse the
     module as a library (aar) in other project.
