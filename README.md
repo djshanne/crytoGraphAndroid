@@ -1,9 +1,9 @@
 crytoGraphAndroid
 
-This is a simple app in kotlin that covers all this points named below:
+#This is a simple app in kotlin that covers all this points named below:
 
- 1 - Android Module usage (views, repository, domain and app)
- 2 - Separate Responsibilities by using modules
+ 1. Android Module usage (views, repository, domain and app)
+ 2. Separate Responsibilities by using modules
  3 - Dependency Injection
  4 - Simple Unit Tests on every module
  5 - Patters: Repository, MPV
