@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".presentation.MainChartActivity">
 
-    <com.kotlin.views.LineChartWidget
+    <com.kotlin.views.widgets.LineChartWidget
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.kotlin.views.GenericErrorWidget
+    <com.kotlin.views.widgets.GenericErrorWidget
         android:visibility="gone"
         android:id="@+id/genericErrorView"
         android:layout_width="match_parent"

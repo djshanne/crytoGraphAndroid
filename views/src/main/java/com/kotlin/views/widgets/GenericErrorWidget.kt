@@ -1,8 +1,9 @@
-package com.kotlin.views
+package com.kotlin.views.widgets
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import com.kotlin.views.R
 import kotlinx.android.synthetic.main.error_generic_widget.view.*
 
 class GenericErrorWidget : BaseWidget<String> {

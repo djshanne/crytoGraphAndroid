@@ -1,4 +1,4 @@
-package com.kotlin.views
+package com.kotlin.views.widgets
 
 import android.content.Context
 import android.graphics.Color
@@ -13,6 +13,7 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IFillFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.Utils
+import com.kotlin.views.R
 import com.kotlin.views.models.LineChartViewModel
 import kotlinx.android.synthetic.main.line_chart_widget.view.*
 

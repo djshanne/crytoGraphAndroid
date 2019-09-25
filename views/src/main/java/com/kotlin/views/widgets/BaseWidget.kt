@@ -1,10 +1,12 @@
-package com.kotlin.views
+package com.kotlin.views.widgets
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
+import com.kotlin.views.widgets.interfaces.BaseWidgetI
 
-abstract class BaseWidget<DATA> : FrameLayout {
+
+abstract class BaseWidget<DATA> : FrameLayout, BaseWidgetI<DATA> {
     constructor(context: Context) : super(context) {
         this.initView(context)
     }
@@ -22,5 +24,5 @@ abstract class BaseWidget<DATA> : FrameLayout {
     }
 
     abstract fun initView(context: Context)
-    abstract fun setData(data: DATA)
+
 }
