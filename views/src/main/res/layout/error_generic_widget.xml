@@ -9,7 +9,7 @@
         android:textStyle="bold"
         android:textSize="30sp"
         android:gravity="center"
-        android:id="@+id/error_generic_widget_msg"
+        android:id="@+id/errorGenericWidgetMsg"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

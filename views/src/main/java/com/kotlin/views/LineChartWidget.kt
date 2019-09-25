@@ -31,8 +31,8 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
 
     override fun initView(context: Context) {
         LayoutInflater.from(context).inflate(R.layout.line_chart_widget, this)
-        lineChart.setBackgroundColor(Color.WHITE)
-        val l = lineChart.legend
+        lineChartWidgetLineChart.setBackgroundColor(Color.WHITE)
+        val l = lineChartWidgetLineChart.legend
         l.form = Legend.LegendForm.LINE
     }
 
@@ -50,12 +50,12 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
 
         val set1: LineDataSet
 
-        if (lineChart.data != null && lineChart.data.dataSetCount > 0) {
-            set1 = lineChart.data.getDataSetByIndex(0) as LineDataSet
+        if (lineChartWidgetLineChart.data != null && lineChartWidgetLineChart.data.dataSetCount > 0) {
+            set1 = lineChartWidgetLineChart.data.getDataSetByIndex(0) as LineDataSet
             set1.values = values
             set1.notifyDataSetChanged()
-            lineChart.data.notifyDataChanged()
-            lineChart.notifyDataSetChanged()
+            lineChartWidgetLineChart.data.notifyDataChanged()
+            lineChartWidgetLineChart.notifyDataSetChanged()
         } else {
             // create a dataset and give it a type
             set1 = LineDataSet(values, viewModel.name)
@@ -84,7 +84,7 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
             // set the filled area
             set1.setDrawFilled(true)
             set1.fillFormatter =
-                IFillFormatter { _, _ -> lineChart.axisLeft.axisMinimum }
+                IFillFormatter { _, _ -> lineChartWidgetLineChart.axisLeft.axisMinimum }
 
 
             // set color of filled area
@@ -103,9 +103,9 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
             val data = LineData(dataSets)
 
             // set data
-            lineChart.data = data
+            lineChartWidgetLineChart.data = data
         }
 
-        lineChart.invalidate()
+        lineChartWidgetLineChart.invalidate()
     }
 }

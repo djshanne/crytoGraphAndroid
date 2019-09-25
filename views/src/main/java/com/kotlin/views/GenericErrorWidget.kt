@@ -24,6 +24,6 @@ class GenericErrorWidget : BaseWidget<String> {
 
 
     override fun setData(data: String) {
-        error_generic_widget_msg.text = data
+        errorGenericWidgetMsg.text = data
     }
 }
