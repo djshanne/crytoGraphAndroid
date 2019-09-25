@@ -10,6 +10,8 @@
  8. Usage of RXJava 2
  9. Error Handling
  10. Feedback Status
+ 11. Uses this API and Shows it's results "https://api.blockchain.info"/charts/market-price?timespan=3days&format=json"
+ 12. To Compare https://www.blockchain.com/charts/market-price?timespan=3days
 
 
 
