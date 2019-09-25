@@ -1,5 +1,3 @@
-crytoGraphAndroid
-
 ## This is a simple app in kotlin that covers all this points named below:
 
  1. Android Module usage (views, repository, domain and app)
