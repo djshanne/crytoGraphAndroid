@@ -32,7 +32,7 @@
 
  4. App : This is the main module, it's job is to orchestrate the android app and it's modules,
     using a presentation layer that has all the Activities / Fragments implementing MPV making the
-    presenter and the view suitable to test. It uses the domain module to execute business logic and
+    presenter and the view suitable to test. It uses the domain module to execute / parse business logic and
     the View module to paint the data on the correct widget
     (Dependencies -Domain-Views-)
 
