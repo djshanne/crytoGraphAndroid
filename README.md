@@ -6,10 +6,13 @@
  4. Simple Unit Tests on every module
  5. Patters: Repository, MPV
  6. Architecture according to the requirements
- 7. Every component is suitable for Unit tests
+ 7. Every component intents to be suitable for Unit tests
  8. Usage of RXJava 2
  9. Error Handling
  10. Feedback Status
+ 11. Android Material Components 
+ 12. Uses this API and Shows it's results "https://api.blockchain.info"/charts/market-price?timespan=3days&format=json"
+ 13. To Compare https://www.blockchain.com/charts/market-price?timespan=3days
 
 
 
@@ -30,7 +33,7 @@
 
  4. App : This is the main module, it's job is to orchestrate the android app and it's modules,
     using a presentation layer that has all the Activities / Fragments implementing MPV making the
-    presenter and the view suitable to test. It uses the domain module to execute business logic and
+    presenter and the view suitable to test. It uses the domain module to execute / parse business logic and
     the View module to paint the data on the correct widget
     (Dependencies -Domain-Views-)
 
