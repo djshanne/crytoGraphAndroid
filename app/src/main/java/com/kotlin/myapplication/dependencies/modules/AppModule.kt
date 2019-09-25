@@ -1,8 +1,8 @@
-package com.kotlin.myapplication.modules
+package com.kotlin.myapplication.dependencies.modules
 
 import com.kotlin.domain.ChartDataHandler
-import com.kotlin.myapplication.MainChartActivityPresenter
-import com.kotlin.myapplication.MainChartActivityPresenterImpl
+import com.kotlin.myapplication.presentation.MainChartActivityPresenter
+import com.kotlin.myapplication.presentation.MainChartActivityPresenterImpl
 import dagger.Module
 import dagger.Provides
 

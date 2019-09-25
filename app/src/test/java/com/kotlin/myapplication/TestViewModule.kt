@@ -1,5 +1,6 @@
 package com.kotlin.myapplication
 
+import com.kotlin.myapplication.presentation.MainChartActivityView
 import com.kotlin.views.models.LineChartViewModel
 import dagger.Module
 import dagger.Provides

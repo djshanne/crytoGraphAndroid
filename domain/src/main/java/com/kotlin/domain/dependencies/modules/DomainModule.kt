@@ -1,4 +1,4 @@
-package com.kotlin.domain.modules
+package com.kotlin.domain.dependencies.modules
 
 import com.kotlin.repository.Repository
 import com.kotlin.repository.RepositoryImpl

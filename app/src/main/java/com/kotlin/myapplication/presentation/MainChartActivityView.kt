@@ -1,4 +1,4 @@
-package com.kotlin.myapplication
+package com.kotlin.myapplication.presentation
 
 import com.kotlin.views.models.LineChartViewModel
 

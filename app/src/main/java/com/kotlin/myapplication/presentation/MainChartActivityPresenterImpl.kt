@@ -1,8 +1,8 @@
-package com.kotlin.myapplication
+package com.kotlin.myapplication.presentation
 
 import com.kotlin.domain.ChartDataHandler
 import com.kotlin.domain.models.ChartDataModel
-import com.kotlin.myapplication.componets.DaggerAppComponent
+import com.kotlin.myapplication.dependencies.componets.DaggerAppComponent
 import com.kotlin.views.models.LineChartViewModel
 import com.kotlin.views.models.Value
 import io.reactivex.android.schedulers.AndroidSchedulers

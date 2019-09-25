@@ -1,5 +1,7 @@
 package com.kotlin.myapplication
 
+import com.kotlin.myapplication.presentation.MainChartActivityPresenterImpl
+import com.kotlin.myapplication.presentation.MainChartActivityView
 import com.kotlin.views.models.LineChartViewModel
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
@@ -34,7 +36,8 @@ class AppUnitTest {
     @Test
     fun is_connection_ko() {
 
-        val view: MainChartActivityView = object : MainChartActivityView {
+        val view: MainChartActivityView = object :
+            MainChartActivityView {
             override fun hasInternetConnection(): Boolean {
                 return false
             }

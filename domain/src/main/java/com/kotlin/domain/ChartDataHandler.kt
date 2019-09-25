@@ -1,6 +1,6 @@
 package com.kotlin.domain
 
-import com.kotlin.domain.components.DaggerDomainComponent
+import com.kotlin.domain.dependencies.components.DaggerDomainComponent
 import com.kotlin.domain.models.ChartDataModel
 import com.kotlin.domain.models.Value
 import com.kotlin.repository.Repository

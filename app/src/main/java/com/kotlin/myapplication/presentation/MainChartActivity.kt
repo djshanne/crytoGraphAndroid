@@ -1,15 +1,17 @@
-package com.kotlin.myapplication
+package com.kotlin.myapplication.presentation
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.kotlin.myapplication.componets.DaggerAppComponent
+import com.kotlin.myapplication.R
+import com.kotlin.myapplication.dependencies.componets.DaggerAppComponent
 import com.kotlin.myapplication.utils.Utils
 import com.kotlin.views.models.LineChartViewModel
 import kotlinx.android.synthetic.main.main_chart_activity.*
 import javax.inject.Inject
 
-class MainChartActivity : AppCompatActivity(), MainChartActivityView {
+class MainChartActivity : AppCompatActivity(),
+    MainChartActivityView {
 
     @Inject
     lateinit var presenter: MainChartActivityPresenter
