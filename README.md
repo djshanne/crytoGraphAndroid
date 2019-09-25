@@ -6,7 +6,7 @@
  4. Simple Unit Tests on every module
  5. Patters: Repository, MPV
  6. Architecture according to the requirements
- 7. Every component is suitable for Unit tests
+ 7. Every component intents to be suitable for Unit tests
  8. Usage of RXJava 2
  9. Error Handling
  10. Feedback Status
