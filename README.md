@@ -1,6 +1,6 @@
 ## This is a simple app in kotlin that covers all this points named below:
 
- 1. Android Module usage (views, repository, domain and app)
+ 1. Android Module usage (views, repository, domain, app, playground)
  2. Separate Responsibilities by using modules
  3. Dependency Injection
  4. Simple Unit Tests on every module
@@ -36,6 +36,11 @@
     presenter and the view suitable to test. It uses the domain module to execute / parse business logic and
     the View module to paint the data on the correct widget
     (Dependencies -Domain-Views-)
+    
+ 5. Playgound : in this app-module we could have a catalog, it helps to build fast views using the views module,
+    this way we can have a list of widgets with it's name and mocked data, but also we could have basic implementations of every module,
+    and this way we could build some tests in this module.
+    (Depedencies -Views-)
 
 
   Using modules makes easy to separate responsibilities and keep it that way during the development
