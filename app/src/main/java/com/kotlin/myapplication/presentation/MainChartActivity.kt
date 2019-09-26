@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.main_chart_activity.*
 import javax.inject.Inject
 
 class MainChartActivity : AppCompatActivity(),
-    MainChartActivityView {
+    MainChartActivityView, View.OnClickListener {
 
     @Inject
     lateinit var presenter: MainChartActivityPresenter
@@ -25,6 +25,7 @@ class MainChartActivity : AppCompatActivity(),
 
     private fun initUi() {
         setContentView(R.layout.main_chart_activity)
+        mainChartActivityRefresh.setOnButtonClickListener(this)
         title = getString(R.string.chart_name)
     }
 
@@ -37,10 +38,15 @@ class MainChartActivity : AppCompatActivity(),
 
     }
 
+    override fun onClick(p0: View?) {
+        presenter.fetchData()
+    }
+
+
     override fun paintChart(viewModel: LineChartViewModel) {
         if (!viewModel.isEmpty()) {
-            genericErrorView.visibility = View.GONE
-            chart.setData(viewModel)
+            mainChartActivityErrorView.visibility = View.GONE
+            mainChartActivityChart.setData(viewModel)
         } else {
             paintError(getString(R.string.status_data_empty))
         }
@@ -59,7 +65,7 @@ class MainChartActivity : AppCompatActivity(),
     }
 
     override fun hideLoading() {
-        genericErrorView.visibility = View.GONE
+        mainChartActivityErrorView.visibility = View.GONE
     }
 
     override fun hasInternetConnection(): Boolean {
@@ -68,15 +74,15 @@ class MainChartActivity : AppCompatActivity(),
 
     override fun paintError(message: String?) {
         if (!message.isNullOrEmpty())
-            genericErrorView.setData(message)
+            mainChartActivityErrorView.setData(message)
         else
-            genericErrorView.setData(getString(R.string.error_generic))
-        genericErrorView.visibility = View.VISIBLE
+            mainChartActivityErrorView.setData(getString(R.string.error_generic))
+        mainChartActivityErrorView.visibility = View.VISIBLE
     }
 
     override fun paintNoInternetConnection() {
-        genericErrorView.setData(getString(R.string.error_no_internet_connection))
-        genericErrorView.visibility = View.VISIBLE
+        mainChartActivityErrorView.setData(getString(R.string.error_no_internet_connection))
+        mainChartActivityErrorView.visibility = View.VISIBLE
     }
 
     override fun onPause() {

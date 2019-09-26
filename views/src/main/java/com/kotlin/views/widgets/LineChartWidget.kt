@@ -37,18 +37,15 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
         l.form = Legend.LegendForm.LINE
     }
 
-
-    override fun setData(viewModel: LineChartViewModel) {
+    override fun setData(data: LineChartViewModel) {
         val values = ArrayList<Entry>()
-
-        for (i in viewModel.values)
+        for (i in data.valuesList)
             values.add(
                 Entry(
                     i.x, i.y,
                     null
                 )
             )
-
         val set1: LineDataSet
 
         if (lineChartWidgetLineChart.data != null && lineChartWidgetLineChart.data.dataSetCount > 0) {
@@ -59,7 +56,7 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
             lineChartWidgetLineChart.notifyDataSetChanged()
         } else {
             // create a dataset and give it a type
-            set1 = LineDataSet(values, viewModel.name)
+            set1 = LineDataSet(values, data.name)
 
             set1.setDrawIcons(false)
 
@@ -79,7 +76,7 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
             set1.formLineDashEffect = DashPathEffect(floatArrayOf(10f, 5f), 0f)
             set1.formSize = 15f
 
-            // text size of values
+            // text size of valuesList
             set1.valueTextSize = 9f
 
             // set the filled area
@@ -108,5 +105,8 @@ class LineChartWidget : BaseWidget<LineChartViewModel> {
         }
 
         lineChartWidgetLineChart.invalidate()
+
     }
+
+
 }
