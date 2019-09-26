@@ -10,7 +10,7 @@
  8. Usage of RXJava 2
  9. Error Handling
  10. Feedback Status
- 11. Android Material Components 
+ 11. Android Material Components (not the focus)
  12. Uses this API and Shows it's results "https://api.blockchain.info"/charts/market-price?timespan=3days&format=json"
  13. To Compare https://www.blockchain.com/charts/market-price?timespan=3days
 
